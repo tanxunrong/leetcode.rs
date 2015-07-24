@@ -1,0 +1,10 @@
+[package]
+name = "leetcode.rs"
+version = "0.0.1"
+authors = ["tanxunrong <tanxrong@sina.cn>"]
+description = "leetcode problems in rust"
+
+[lib]
+name = "leetcode"
+path = "src/lib"
+test = true
