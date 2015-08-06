@@ -1,8 +1,6 @@
 
-pub type Matrix = Vec<Vec<usize>>;
-
 /// O(m + n)
-pub fn search_matrix(ma : &Matrix, target : usize) -> bool {
+pub fn search_matrix(ma : &Vec<Vec<usize>>, target : usize) -> bool {
     let yl = ma.len();
     match yl {
         0 => { false },
@@ -14,13 +12,15 @@ pub fn search_matrix(ma : &Matrix, target : usize) -> bool {
                     let mut i = 0;
                     let mut j = yl-1;
                     loop {
-                        if i < xl && j >=0 {
+                        if i < xl {
                             if target == ma[j][i] {
                                 return true;
                             } else if target > ma[j][i] {
                                 i += 1;
-                            } else {
+                            } else if j != 0 {
                                 j -= 1;
+                            } else {
+                                break;
                             }
                         } else {
                             break;
